@@ -1,0 +1,487 @@
+db@vlad-linux:~$ mkdir HW
+
+db@vlad-linux:~$ cd HW
+
+db@vlad-linux:~/HW$ mkdir toys_for_schoolboys toys_for_preschoolers
+
+db@vlad-linux:~/HW$ ll
+
+итого 16
+
+drwxrwxr-x  4 db db 4096 мая  8 13:35 ./
+
+drwxr-x--- 20 db db 4096 мая  8 13:28 ../
+
+drwxrwxr-x  2 db db 4096 мая  8 13:35 toys_for_preschoolers/
+
+drwxrwxr-x  2 db db 4096 мая  8 13:35 toys_for_schoolboys/
+
+db@vlad-linux:~/HW$ touch /home/db/HW/toys_for_schoolboys/{robots.txt,constructors.txt,board_games.txt}
+
+db@vlad-linux:~/HW$ touch /home/db/HW/toys_for_preschoolers/{soft_toys.txt,dolls.txt,cars.txt}
+
+db@vlad-linux:~/HW$ ll toys_for_schoolboys/
+
+итого 8
+
+drwxrwxr-x 2 db db 4096 мая  8 13:38 ./
+
+drwxrwxr-x 4 db db 4096 мая  8 13:35 ../
+
+-rw-rw-r-- 1 db db    0 мая  8 13:38 board_games.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:38 constructors.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:38 robots.txt
+
+db@vlad-linux:~/HW$ ll toys_for_preschoolers/
+
+итого 8
+
+drwxrwxr-x 2 db db 4096 мая  8 13:40 ./
+
+drwxrwxr-x 4 db db 4096 мая  8 13:35 ../
+
+-rw-rw-r-- 1 db db    0 мая  8 13:40 cars.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:40 dolls.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:40 soft_toys.txt
+
+db@vlad-linux:~/HW$ mkdir name_toys
+
+db@vlad-linux:~/HW$ ll
+
+итого 20
+
+drwxrwxr-x  5 db db 4096 мая  8 13:53 ./
+
+drwxr-x--- 20 db db 4096 мая  8 13:28 ../
+
+drwxrwxr-x  2 db db 4096 мая  8 13:53 name_toys/
+
+drwxrwxr-x  2 db db 4096 мая  8 13:40 toys_for_preschoolers/
+
+drwxrwxr-x  2 db db 4096 мая  8 13:38 toys_for_schoolboys/
+
+db@vlad-linux:~/HW$ cp -rv toys_for_schoolboys/* toys_for_preschoolers/* name_toys/
+
+'toys_for_schoolboys/board_games.txt' -> 'name_toys/board_games.txt'
+
+'toys_for_schoolboys/constructors.txt' -> 'name_toys/constructors.txt'
+
+'toys_for_schoolboys/robots.txt' -> 'name_toys/robots.txt'
+
+'toys_for_preschoolers/cars.txt' -> 'name_toys/cars.txt'
+
+'toys_for_preschoolers/dolls.txt' -> 'name_toys/dolls.txt'
+
+'toys_for_preschoolers/soft_toys.txt' -> 'name_toys/soft_toys.txt'
+
+db@vlad-linux:~/HW$ ll name_toys/
+
+итого 8
+
+drwxrwxr-x 2 db db 4096 мая  8 13:54 ./
+
+drwxrwxr-x 5 db db 4096 мая  8 13:53 ../
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 board_games.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 cars.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 constructors.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 dolls.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 robots.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 soft_toys.txt
+
+db@vlad-linux:~/HW$ mv name_toys/ toys/
+
+db@vlad-linux:~/HW$ ll
+
+итого 20
+
+drwxrwxr-x  5 db db 4096 мая  8 13:58 ./
+
+drwxr-x--- 20 db db 4096 мая  8 13:28 ../
+
+drwxrwxr-x  2 db db 4096 мая  8 13:54 toys/
+
+drwxrwxr-x  2 db db 4096 мая  8 13:40 toys_for_preschoolers/
+
+drwxrwxr-x  2 db db 4096 мая  8 13:38 toys_for_schoolboys/
+
+db@vlad-linux:~/HW$ ll toys/
+
+итого 8
+
+drwxrwxr-x 2 db db 4096 мая  8 13:54 ./
+
+drwxrwxr-x 5 db db 4096 мая  8 13:58 ../
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 board_games.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 cars.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 constructors.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 dolls.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 robots.txt
+
+-rw-rw-r-- 1 db db    0 мая  8 13:54 soft_toys.txt
+
+db@vlad-linux:~/HW$ sudo snap find opera
+
+Название             Версия        Издатель           Примечание  Описание
+
+opera                98.0.4759.15  opera-software✓    -           Fast, secure, easy-to-use browser
+
+opera-beta           98.0.4759.21  opera-software✓    -           Fast and secure web browser
+
+opera-developer      99.0.4780.0   opera-software✓    -           Fast and secure web browser
+
+opera-proxy          1.2.4         snawoot            -           Standalone Opera VPN proxies client.
+
+operator-builder     0.5.0         vmware-tanzu-labs  -           A Kubebuilder plugin to accelerate the development of Kubernetes operators.
+
+xdman                8.0.26        capecrusader-121   -           Xtreme Download Manager is a powerful tool to increase download speed up-to 500%.
+
+contasimple          3.1.0         enriverd           -           Contasimple Desktop
+
+office365webdesktop  0.7.2         rafgui012          -           It is a simple desktop application for Office365 of the web version for linux
+
+devoperator          1.7.1         art-hens-teeth     classic     DevOps tools
+
+db@vlad-linux:~/HW$ sudo snap install opera
+
+opera 98.0.4759.15 от Opera (opera-software✓) установлен
+
+db@vlad-linux:~/HW$ sudo snap list
+
+Название                   Версия                      Правка  Канал            Издатель         Примечание
+
+bare                       1.0                         5       latest/stable    canonical✓       base
+
+chromium-ffmpeg            0.1                         30      latest/stable    canonical✓       -
+
+core18                     20230320                    2721    latest/stable    canonical✓       base
+
+core20                     20230404                    1879    latest/stable    canonical✓       base
+
+core22                     20230404                    617     latest/stable    canonical✓       base
+
+firefox                    112.0.1-1                   2579    latest/stable/…  mozilla✓         -
+
+gnome-3-28-1804            3.28.0-19-g98f9e67.98f9e67  198     latest/stable    canonical✓       -
+
+gnome-3-38-2004            0+git.6f39565               140     latest/stable/…  canonical✓       -
+
+gnome-42-2204              0+git.587e965               102     latest/stable    canonical✓       -
+
+google-docs                2022.12.1                   21      latest/stable    comp-labs        -
+
+gtk-common-themes          0.1-81-g442e511             1535    latest/stable/…  canonical✓       -
+
+opera                      98.0.4759.15                230     latest/stable    opera-software✓  -
+
+snap-store                 41.3-66-gfe1e325            638     latest/stable/…  canonical✓       -
+
+snapd                      2.58.3                      18596   latest/stable    canonical✓       snapd
+
+snapd-desktop-integration  0.1                         57      latest/stable/…  canonical✓       -
+
+db@vlad-linux:~/HW$ sudo snap remove opera
+
+opera удалён
+
+db@vlad-linux:~/HW$ sudo snap changes 
+
+ИД   Состояние  Созданы              Готовы               Всего
+
+9    Done       сегодня в 13:37 MSK  сегодня в 13:38 MSK  Автоматически обновить пакеты "core20", "gnome-42-2204"
+
+10   Done       сегодня в 14:04 MSK  сегодня в 14:04 MSK  Установить snap-пакет "opera"
+
+11   Done       сегодня в 14:06 MSK  сегодня в 14:06 MSK  Удалить "opera" snap-пакет
+
+db@vlad-linux:~/HW$ crontab -e
+
+crontab: installing new crontab
+
+db@vlad-linux:~/HW$ crontab -l
+
+# Edit this file to introduce tasks to be run by cron.
+
+# 
+
+# Each task to run has to be defined through a single line
+
+# indicating with different fields when the task will be run
+
+# and what command to run for the task
+
+# 
+
+# To define the time you can provide concrete values for
+
+# minute (m), hour (h), day of month (dom), month (mon),
+
+# and day of week (dow) or use '*' in these fields (for 'any').
+
+# 
+
+# Notice that tasks will be started based on the cron's system
+
+# daemon's notion of time and timezones.
+
+# 
+
+# Output of the crontab jobs (including errors) is sent through
+
+# email to the user the crontab file belongs to (unless redirected).
+
+# 
+
+# For example, you can run a backup of all your user accounts
+
+# at 5 a.m every week with:
+
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+
+# 
+
+# For more information see the manual pages of crontab(5) and cron(8)
+
+# 
+
+# m h  dom mon dow   command
+
+10 * * * * cat /home/db/test3/test.txt > /home/db/test3/test.txt.bak
+
+0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57 * * * * ls /home/db/ >> /home/db/HW/filelist.txt
+
+db@vlad-linux:~/HW$ cat filelist.txt 
+
+1
+
+all.txt
+
+Dockerfile
+
+err.txt
+
+f3
+
+f4
+
+f5
+
+homescript1
+
+homescript2
+
+homescript3
+
+HW
+
+iptables-config
+
+ls.txt
+
+shared
+
+snap
+
+sometext
+
+sometext1
+
+sometext1~
+
+std.txt
+
+test3
+
+test_ln_dir
+
+testscript
+
+testscript1
+
+udo systemctl stop nginx
+
+virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+
+w7and8
+
+wordpress_site
+
+Видео
+
+Документы
+
+Загрузки
+
+Изображения
+
+Музыка
+
+Общедоступные
+
+Рабочий стол
+
+Шаблоны
+
+1
+
+all.txt
+
+Dockerfile
+
+err.txt
+
+f3
+
+f4
+
+f5
+
+homescript1
+
+homescript2
+
+homescript3
+
+HW
+
+iptables-config
+
+ls.txt
+
+shared
+
+snap
+
+sometext
+
+sometext1
+
+sometext1~
+
+std.txt
+
+test3
+
+test_ln_dir
+
+testscript
+
+testscript1
+
+udo systemctl stop nginx
+
+virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+
+w7and8
+
+wordpress_site
+
+Видео
+
+Документы
+
+Загрузки
+
+Изображения
+
+Музыка
+
+Общедоступные
+
+Рабочий стол
+
+Шаблоны
+
+1
+
+all.txt
+
+Dockerfile
+
+err.txt
+
+f3
+
+f4
+
+f5
+
+homescript1
+
+homescript2
+
+homescript3
+
+HW
+
+iptables-config
+
+ls.txt
+
+shared
+
+snap
+
+sometext
+
+sometext1
+
+sometext1~
+
+std.txt
+
+test3
+
+test_ln_dir
+
+testscript
+
+testscript1
+
+udo systemctl stop nginx
+
+virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb
+
+w7and8
+
+wordpress_site
+
+Видео
+
+Документы
+
+Загрузки
+
+Изображения
+
+Музыка
+
+Общедоступные
+
+Рабочий стол
+
+Шаблоны
+
+db@vlad-linux:~/HW$ 
+
+
+
+
+
+
+
+
