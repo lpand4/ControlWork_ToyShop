@@ -1,4 +1,6 @@
-package org.example;
+package org.example.Model;
+
+import org.example.Model.AbstractToy;
 
 public class Toy extends AbstractToy {
     public Integer quantity; // кол-во

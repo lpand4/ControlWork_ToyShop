@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +29,12 @@ public class Warehouse implements Gift {
 
     @Override
     public void randomGiftSelection() {
-        Toy selectedToy = null;
-
-
+        RandomCollection<Toy> rc = new RandomCollection<Toy>();
+        for(Toy toy : toyWarehouse)
+            for (int i = 0; i < toy.quantity; i++) {
+                rc.add(toy.probability, toy);
+            }
+        Toy selectedToy = rc.next();
         removeToy(selectedToy);
         giftBasket.addGift(selectedToy);
     }

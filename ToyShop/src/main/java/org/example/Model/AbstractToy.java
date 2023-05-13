@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Model;
 
 public abstract class AbstractToy {
     public Integer id;
