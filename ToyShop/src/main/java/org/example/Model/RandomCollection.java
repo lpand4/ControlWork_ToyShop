@@ -33,7 +33,7 @@ class RandomCollection<E> {
         E resultValue = map.higherEntry(value).getValue();
         Toy resultValueToy = (Toy) resultValue;
         Double resultKey = map.higherEntry(value).getKey();
-        System.out.println(total);
+        //System.out.println(total);
         this.total -= resultValueToy.getProbability();
         map.remove(resultKey);
         return resultValue;

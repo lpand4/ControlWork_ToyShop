@@ -35,8 +35,12 @@ public class View {
     public void showQueueToys(Queue<Toy> toys){
         int count = 1;
         for (Toy toy : toys) {
-            System.out.printf("%d. \t%s \t- \t%.1f\n",count,toy.textName,toy.probability);
+            System.out.printf("\t%d. \t%s \t- \t%.1f\n",count,toy.textName,toy.probability);
+            count++;
         }
+    }
+    public void showPrize(Toy toy){
+        System.out.printf("%s с шансом выпадения %.1f",toy.textName, toy.probability);
     }
 
 

@@ -72,14 +72,19 @@ public class Warehouse implements Gift {
 
     @Override
     public void randomGiftSelection() {
-        RandomCollection<Toy> rc = new RandomCollection<Toy>();
-        for(Toy toy : toyWarehouse)
-            for (int i = 0; i < toy.quantity; i++) {
-                rc.add(toy.probability, toy);
-            }
-        Toy selectedToy = rc.next();
-        removeToy(selectedToy);
-        giftBasket.addGift(selectedToy);
+        if(toyWarehouse.size() > 0){
+            RandomCollection<Toy> rc = new RandomCollection<Toy>();
+            for(Toy toy : toyWarehouse)
+                for (int i = 0; i < toy.quantity; i++) {
+                    rc.add(toy.probability, toy);
+                }
+            Toy selectedToy = rc.next();
+            removeToy(selectedToy);
+            giftBasket.addGift(selectedToy);
+            System.out.println("Игрушка добавилась в корзину подарков!");
+        }else
+            System.out.println("Игрушки на складе закончились :C");
+
     }
 
 
@@ -126,5 +131,20 @@ public class Warehouse implements Gift {
             else
                 System.out.println("Введите адекватное значение");
         }while (changed);
+    }
+
+    public void pickUpPrize(){
+        Scanner sc = new Scanner(System.in);
+        View v = new View();
+        if(giftBasket.basketWithGifts.size() > 0){
+            System.out.println("Назовите Ваше имя: ");
+            String name = sc.nextLine();
+            Toy prizeToy = giftBasket.basketWithGifts.poll();
+            //giftBasket.basketWithGifts.remove();
+            System.out.printf("Приз выдается %s. Он забирает ",name);
+            v.showPrize(prizeToy);
+        }else
+            System.out.println("Корзина подарков пуста, дождитесь новой лотереи!");
+
     }
 }

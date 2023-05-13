@@ -12,7 +12,6 @@ public class Controller {
     Scanner sc = new Scanner(System.in);
     View v = new View();
     Warehouse wh;
-    GiftBasket gb;
 
     public Controller() {
         //Нужно подгружать игрушки для wh и gb
@@ -23,8 +22,8 @@ public class Controller {
         warehouseToys.add(new Toy("Panda",6,20.0));
         warehouseToys.add(new Toy("Monkey",12,30.0));
 
-        this.gb = new GiftBasket(queueToys);
-        this.wh = new Warehouse(warehouseToys, this.gb);
+        GiftBasket gb = new GiftBasket(queueToys);
+        this.wh = new Warehouse(warehouseToys, gb);
     }
 
     public void start(){
@@ -91,7 +90,7 @@ public class Controller {
     }
 
     private void pickUpPrize(){
-        System.out.println("5 work");
+        wh.pickUpPrize();
     }
 
     private void changeQuantity(){
