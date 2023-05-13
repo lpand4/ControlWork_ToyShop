@@ -30,4 +30,13 @@ public class Toy extends AbstractToy {
     public void setProbability(Double probability) {
         this.probability = probability;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder().append("\t| ID: ").append(this.id)
+                .append("\t |Название: ").append(this.textName)
+                .append("\t| Кол-во: ").append(this.quantity).append(" шт")
+                .append("\t| Шанс: ").append(this.probability).append("% |");
+        return sb.toString();
+    }
 }

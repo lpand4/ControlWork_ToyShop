@@ -12,4 +12,8 @@ public class GiftBasket {
     public void addGift(Toy giftToy){
         basketWithGifts.add(giftToy);
     }
+
+    public Queue<Toy> getBasketWithGifts() {
+        return basketWithGifts;
+    }
 }
