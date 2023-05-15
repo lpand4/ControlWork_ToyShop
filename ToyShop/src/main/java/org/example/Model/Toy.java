@@ -15,6 +15,14 @@ public class Toy extends AbstractToy {
         this.probability = probability;
     }
 
+    public Toy(Integer id, String textName, Integer quantity, Double probability) {
+        super(id, textName);
+        this.quantity = quantity;
+        this.probability = probability;
+        countID = id + 1;
+    }
+
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -37,6 +45,20 @@ public class Toy extends AbstractToy {
                 .append("\t |Название: ").append(this.textName)
                 .append("\t| Кол-во: ").append(this.quantity).append(" шт")
                 .append("\t| Шанс: ").append(this.probability).append("% |");
+        return sb.toString();
+    }
+    public String toSaveFormat(){
+        StringBuilder sb = new StringBuilder().append(this.id).append(" ")
+                .append(this.textName).append(" ")
+                .append(this.quantity).append(" ")
+                .append(this.probability);
+        return sb.toString();
+    }
+    public String toGiftFormat(String name){
+        StringBuilder sb = new StringBuilder().append("Поздравляем ").append(name)
+                .append("! Вы теперь являетесь обладателем данной игрушки: ").append(this.textName)
+                .append(" шанс ее выпадения равнялся ").append(this.probability)
+                .append("%!!!");
         return sb.toString();
     }
 }

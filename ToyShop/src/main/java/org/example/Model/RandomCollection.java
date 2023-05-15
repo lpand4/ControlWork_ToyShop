@@ -17,7 +17,7 @@ class RandomCollection<E> {
         this.random = random;
     }
 
-    public void getCount(){
+    public void getCount() {
         System.out.println(this.map.size());
     }
 

@@ -2,6 +2,9 @@ package org.example.Model;
 
 import org.example.View.View;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -29,34 +32,30 @@ public class Warehouse implements Gift {
             try {
                 System.out.println("Введите количество: ");
                 quantityStr = sc.nextLine();
-                if(quantityStr.chars().allMatch( Character::isDigit ) && Integer.parseInt(quantityStr) > 0 ){
+                if (quantityStr.chars().allMatch(Character::isDigit) && Integer.parseInt(quantityStr) > 0) {
                     quantity = Integer.parseInt(quantityStr);
                     break;
-                }
-                else
+                } else
                     System.out.println("Введите адекватное значение");
-            }
-            catch (Exception a){
+            } catch (Exception a) {
                 System.out.println("Введено неверное значение");
             }
-        }while (true);
+        } while (true);
         do {
             try {
                 System.out.println("Введите шанс выпадения: ");
                 probabilityStr = sc.nextLine();
-                if(probabilityStr.chars().allMatch( Character::isDigit ) && Integer.parseInt(probabilityStr) > 0 ){
+                if (probabilityStr.chars().allMatch(Character::isDigit) && Integer.parseInt(probabilityStr) > 0) {
                     probability = Double.parseDouble(probabilityStr);
                     break;
-                }
-                else
+                } else
                     System.out.println("Введите адекватное значение");
-            }
-            catch (Exception a){
+            } catch (Exception a) {
                 System.out.println("Введено неверное значение");
             }
-        }while (true);
+        } while (true);
 
-        Toy newToy = new Toy(textName,quantity,probability);
+        Toy newToy = new Toy(textName, quantity, probability);
         toyWarehouse.add(newToy);
     }
 
@@ -72,9 +71,9 @@ public class Warehouse implements Gift {
 
     @Override
     public void randomGiftSelection() {
-        if(toyWarehouse.size() > 0){
+        if (toyWarehouse.size() > 0) {
             RandomCollection<Toy> rc = new RandomCollection<Toy>();
-            for(Toy toy : toyWarehouse)
+            for (Toy toy : toyWarehouse)
                 for (int i = 0; i < toy.quantity; i++) {
                     rc.add(toy.probability, toy);
                 }
@@ -82,7 +81,7 @@ public class Warehouse implements Gift {
             removeToy(selectedToy);
             giftBasket.addGift(selectedToy);
             System.out.println("Игрушка добавилась в корзину подарков!");
-        }else
+        } else
             System.out.println("Игрушки на складе закончились :C");
 
     }
@@ -96,7 +95,7 @@ public class Warehouse implements Gift {
         return giftBasket;
     }
 
-    public void changeQuantity(){
+    public void changeQuantity() {
         Scanner sc = new Scanner(System.in);
         String idStr;
         String quantityStr;
@@ -107,43 +106,44 @@ public class Warehouse implements Gift {
             System.out.println("Напишите ID игрушки, кол-во которой хотите поменять: ");
             idStr = sc.nextLine();
 
-            if(idStr.chars().allMatch( Character::isDigit )){
-                for (Toy toy:toyWarehouse){
-                    if(toy.id == Integer.parseInt(idStr)){
+            if (idStr.chars().allMatch(Character::isDigit) && !idStr.isEmpty() ) {
+                for (Toy toy : toyWarehouse) {
+                    if (toy.id == Integer.parseInt(idStr)) {
                         System.out.println("Напишите желаемое количество: ");
                         quantityStr = sc.nextLine();
-                        if(quantityStr.chars().allMatch( Character::isDigit ) && Integer.parseInt(quantityStr) >=0){
-                            if(Integer.parseInt(quantityStr) >0){
+                        if (quantityStr.chars().allMatch(Character::isDigit) && !quantityStr.isEmpty() && Integer.parseInt(quantityStr) > 0) {
+                            if (Integer.parseInt(quantityStr) > 0) {
                                 toy.setQuantity(Integer.parseInt(quantityStr));
                                 changed = false;
                             }
-                            else
-                                removeToy(toy);
                         }
                     }
                 }
-                if(!changed){
+                if (!changed) {
                     System.out.println("Замена прошла успешно!");
-                }else {
+                } else {
                     System.out.println("Введено неверное значение, попробуйте еще раз!");
                 }
-            }
-            else
+            } else
                 System.out.println("Введите адекватное значение");
-        }while (changed);
+        } while (changed);
     }
 
-    public void pickUpPrize(){
+    public void pickUpPrize() {
         Scanner sc = new Scanner(System.in);
         View v = new View();
-        if(giftBasket.basketWithGifts.size() > 0){
+        if (giftBasket.basketWithGifts.size() > 0) {
             System.out.println("Назовите Ваше имя: ");
             String name = sc.nextLine();
             Toy prizeToy = giftBasket.basketWithGifts.poll();
-            //giftBasket.basketWithGifts.remove();
-            System.out.printf("Приз выдается %s. Он забирает ",name);
-            v.showPrize(prizeToy);
-        }else
+            try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("prize.txt"))) {
+                    bufferedWriter.write(prizeToy.toGiftFormat(name));
+            } catch (IOException e) {
+                System.out.println("Неполадки с файлом выдачи приза!");
+            }
+            //System.out.printf("Приз выдается %s. Он забирает ", name);
+            //v.showPrize(prizeToy);
+        } else
             System.out.println("Корзина подарков пуста, дождитесь новой лотереи!");
 
     }

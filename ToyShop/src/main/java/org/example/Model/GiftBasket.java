@@ -9,7 +9,7 @@ public class GiftBasket {
         this.basketWithGifts = basketWithGifts;
     }
 
-    public void addGift(Toy giftToy){
+    public void addGift(Toy giftToy) {
         basketWithGifts.add(giftToy);
     }
 
